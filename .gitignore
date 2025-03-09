@@ -1,0 +1,8 @@
+# Ignore all files with .tex extension
+*.tex
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
