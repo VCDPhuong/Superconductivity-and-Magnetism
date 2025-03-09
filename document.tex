@@ -4,7 +4,7 @@
 \usepackage{physics}
 \usepackage{pgfplots}
 \usepackage{amsthm}
-\title{Second-order phase transition through mean-field approach}
+\title{Second-Order Phase Transition\\ In Magnetism Through Mean-field Approach}
 \author{Vo Chau Duc Phuong $^1$}
 \date{$^1$the Abdus Salam International Center for Theoretical Physics\vspace{4pt}\\March 2025}
 \pgfplotsset{
@@ -71,8 +71,8 @@ give us:
 and when we consider a higher expansion on the Langevin function:
 \begin{align}
 	\ev{m_z}\frac{\beta m \Gamma}{m^2} =& \frac{x}{3} - \frac{x^3}{45} \nonumber\\
-	\frac{T}{T_c} =& 1 - \frac{z^2}{15} \nonumber\\
-	\Rightarrow z =& \pm \sqrt{15\Gamma k_B m (T_c-T)} = \pm z_0.
+	\frac{T}{T_c} =& 1 - \frac{x^2}{15} \nonumber\\
+	\Rightarrow x =& \pm \sqrt{15\Gamma k_B m (T_c-T)} = \pm z_0.
 \end{align}
 \quad This expression give us two states that can happens when the \(T < T_c\), we neglect the trivial \(\ev{m_z} = 0\) in the previous calculation due to the unstable of this point in compare with the stable points \(z_0\). From the Langevin function, we also can derive Curie's law:
 \begin{align}
@@ -160,12 +160,68 @@ At the transition point \(\ev{M_z} \to 0\), we can approximate the \(B_{\nu}(y) 
 	\xrightarrow{H_{ext} \to 0}k_B T_c =&  (g_J \mu_B)^2 J\frac{J + 1}{3} \Gamma
 \end{align}
 \quad The \(J^2\) term in the equation give the idea of corresponding with the \(m^2\) term in semi-classical ansatz, in which \(J^2 \gg J\). Which the same proceed, Curie's law and Curie-Weiss's law can easily computed without and with mean-field approach, respectively:
-\begin{equation}
-	\chi_0 = \frac{N}{V}\lim_{H_{ext} \to 0} \frac{\ev{M_z}}{H_{ext}} = n\frac{g_J^2 \mu_B^2 }{3k_B T} \frac{J+1}{J} = \frac{C}{T}
-\end{equation}
 \begin{align*}
+	\chi_0 &= \frac{N}{V}\lim_{H_{ext} \to 0} \frac{\ev{M_z}}{H_{ext}} = n\frac{g_J^2 \mu_B^2 }{3k_B T} \frac{J+1}{J} = \frac{C}{T} \qquad \text{(Q.E.D)}\\
 	\chi &= \frac{N}{V} \lim_{H_{ext} \to 0} \frac{\ev{M_z}}{H_{ext}} = \chi_0 + \frac{T_c}{T} \chi\\
-	\Rightarrow \chi(T) &= \frac{\chi_0}{T - T_c}
+	\Rightarrow \chi(T) &= \frac{\chi_0}{T - T_c} \qquad \text{(Q.E.D)}
 \end{align*}
-
+\section{Free Energy Ansatz:}
+\subsection{The Idea:}
+\quad Landau theory place a key role in describe the phase transition of the system, by writing the free energy of the system in term of order parameter \(\eta\) (the physical value depend on the system that will drop to and remains at 0 as \(T>T_c\)). We will skip some argument about the symmetry of the system to arrive with the final expression:
+\begin{equation}
+	F = F_0 + \alpha (T - T_c) \eta^2 + b(T_c) \eta^4 - h\eta, \quad (\alpha, b > 0)
+\end{equation}
+\quad For the magnetism system, the wise value to be choose as the order parameter will be the component of magnetism of the system (in this case is the \(\ev{m_z}\)).\\
+\subsection{The Missionary One:}
+\quad Start from the partition function of the semi-classical case, we have the free energy of the homogeneous system:
+\begin{align}
+	F =& -k_b T \ln Z + \frac{\vec{H}\vec{M}}{2}\nonumber\\
+	 =& -k_B T \ln \bigg(\frac{1}{x} \sinh x\bigg) + \frac{H \ev{M_z}}{2},\quad x = \beta m H\nonumber\\\label{Eq: Landau}
+	 =& - k_B T \bigg(\frac{x^2}{6} - \frac{x^4}{180}\bigg) + \frac{1}{2} H \ev{M_z}
+\end{align}
+Again, we use the mean-field to modify the total field \(H \to H_{ext} + \Gamma \ev{M_z}\). A little arrange and we will have:
+\begin{align}
+	F =& - k_B T \frac{(\beta m H)^2}{6} + \frac{1}{2} H \ev{M_z} + \frac{k_B T}{180} (\beta m H)^4 \nonumber \\
+	=& -\frac{1}{6 k_B T} (m(H_{ext} + \Gamma \ev{M_z}))^2 + \frac{1}{2}(H_{ext} + \Gamma \ev{M_z}) \ev{M_z} + \frac{m^4}{180 k_b^3 T^3} H^4\nonumber\\
+	\approx& \frac{1}{2} \ev{M_z}^2 \bigg(\Gamma - \frac{m^2}{3k_B T} \Gamma^2\bigg) + \frac{m^4 \Gamma^4}{180 k_b^3 T_c^3} \ev{M_z}^4  + \ev{M_z} \bigg(\frac{1}{2}- \frac{m^2 \Gamma}{3k_B T}\bigg)H_{ext}\\
+\end{align}
+According to Landau's theory's equation \eqref{Eq: Landau}, we define and rearrange:
+\begin{equation}
+	F = F_0 + \alpha (T -T_c) \ev{M_z}^2 + b(T_c) \ev{M_z}^4 + h\ev{M_z}\\
+\end{equation}
+in which,
+\begin{equation}
+	k_B T_c = \frac{m^2 \Gamma}{3}, \quad \alpha = \frac{\Gamma}{2T_c},\quad b = \frac{m^2\Gamma^3}{60k_b^2 T_c^2}, \quad h = \frac{H_{ext}}{2}
+\end{equation}
+\quad The self-consistence equation can be recovered through the derivative of the Free energy according to Landau's theory's idea of the minimum of the potential at the limit \(H_{ext} = 0\):
+\begin{align}
+	\pdv{F}{\ev{M_z}} &= \frac{\Gamma(T - T_c)}{T_c} \ev{M_z} + \frac{m^2 \Gamma^3}{15k_B^2 T_c^2} \ev{M_z}^3 = 0 \nonumber \\
+	\frac{T}{T_c} &= 1 - \frac{m^2\Gamma^2 \beta^2}{15}\ev{M_z}^2 = 1- \frac{x^2}{15}
+\end{align}
+\subsection{The Other One:}
+\quad In the quantum ansatz, as we have discuss:
+\begin{align}
+	F &= -k_B T \ln Z + \frac{\vec{H}\vec{M}}{2} = - k_B T \ln \frac{\sinh \big(x \big( J + \frac{1}{2}\big)\big)}{\sinh \big(\frac{x}{2}\big)} + \frac{\vec{H}\vec{M}}{2} \nonumber \\
+	&= -k_B T \bigg( \ln (2J + 1)  + \frac{J(J+1)}{6} x^2  - \frac{J(2J^3 + 4J^2 + 3J + 1)}{360}x^4\bigg) + \frac{x^2}{2 \Gamma (\beta g_J\mu_B)^2}.
+\end{align}
+\quad In this scenario, since I am really lazyyyyyy!, I will treat and choose \(x = \beta g_J \mu_B \Gamma \ev{M_z}\) as the order parameter, they still the same, just difference by some constant. What we want to focus in here is the numeric factor:
+\begin{align*}
+	F =& F_0 +  \bigg(\frac{1}{\Gamma g_J^2 \mu_B^2 \beta^2} - \frac{J(J+1)}{3\beta}\bigg)\frac{x^2}{2} - \frac{J(2J^3 + 4J^2 + 3J + 1)}{360\beta} x^4\nonumber\\
+	=& F_0 + \bigg(\frac{3 - \beta \Gamma g_J^2 \mu_B^2 J(J+1)}{3\Gamma g_J^2 \mu^2_B \beta^2}\bigg) \frac{x^2}{2} - \frac{J(2J^3 + 4J^2 + 3J + 1)}{360\beta} x^4.
+\end{align*}
+\quad Compare with the Landau equation \eqref{Eq: Landau}, we can easily see the critical point:
+\begin{equation}
+	k_B T_c = \frac{J(J+1) \Gamma}{3} (g_J^2 \mu_B^2),
+\end{equation}
+which give us:
+\begin{equation}
+F =	k_B^2 T_c (T - T_c) \frac{x^2}{2} - \frac{J(2J^3 + 4J^2 + 3J + 1)}{360\beta} x^4 + h x
+\end{equation}
+The \(x^4\) term can be easily deal when take the classical limit to gain:
+\begin{equation*}
+	\frac{J(2J^3 + 4J^2 + 3J + 1)}{360\beta} x^4 \xrightarrow{J \to \infty} \frac{J^4 x^4}{180}.
+\end{equation*}
+\quad And we can treat it as in the semi-classical case. And again, I'm very lazy to normal exact the term h in x representation, but it will be it, still there and have a minus sign \(h < 0\).
+\section{Conclusion}
+\quad As we have discussed above, two way of calculating the order parameter in the canonical ensemble have been proof to be equivalent. The expression of Landau theory is an interesting example for the application in real problem.
 \end{document}
